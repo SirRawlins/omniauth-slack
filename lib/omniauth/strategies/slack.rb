@@ -152,7 +152,6 @@ module OmniAuth
       extra do
         {
           web_hook_info: web_hook_info,
-          #bot_info: bot_info,
           bot_info: auth['bot'] || bots_info['bot'],
           auth: auth,
           identity: @identity,
@@ -162,12 +161,6 @@ module OmniAuth
           raw_info: {
             team_identity: team_identity,  # Requires identify:basic scope
             user_identity: user_identity,  # Requires identify:basic scope
-            auth: access_token.dup.tap{|i| i.remove_instance_variable(:@client)},
-            identity: @identity_raw,
-            user_info: @user_info_raw,
-            user_profile: @user_profile_raw,
-            team_info: @team_info_raw,
-            bot_info: @bots_info_raw
           }
         }
       end
