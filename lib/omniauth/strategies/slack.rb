@@ -198,7 +198,7 @@ module OmniAuth
       end
 
       def identity
-        return {} unless has_scope?('identity.basic')
+        return {} unless has_scope?('identify') || has_scope?('identity.basic')
         @identity_raw ||= access_token.get('/api/users.identity')
         @identity ||= @identity_raw.parsed
       end
